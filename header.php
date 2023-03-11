@@ -17,7 +17,6 @@
               <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient">Κατάστημα</a>
               <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient" href="suppliers_page.php">Προμηθευτές</a>
               <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient" href="daily_tasks.php">Εργασίες</a>
-
           </div>
         </div>
       </nav>
