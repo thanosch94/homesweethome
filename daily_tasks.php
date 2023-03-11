@@ -1,6 +1,6 @@
 <?php
 include "connect.php";
-//new_input();
+new_input();
 if (isset($_POST['newUser'])) {
         addNewUser(); // Call the function to add the new user
         
