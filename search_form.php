@@ -1,4 +1,4 @@
-
+<html>
 <form action="search_results.php" method="post">
           <h1 class="fs-4 fw-bold no-padding-top">Εύρεση Μεταφορικής</h1>
           <div class="form-margins">
@@ -33,3 +33,4 @@
             <button class="btn w-100 text-light" type="submit" value="Αναζήτηση" >Αναζήτηση</button>
 
         </form>
+</html>
