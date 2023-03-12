@@ -64,19 +64,20 @@ class TodoList {
     this.input = document.querySelector("input");
     this.$user = document.querySelectorAll(".user");
     this.$user.forEach((user) => {
-      user.addEventListener("click", (e) => {
-        this.$user.forEach((otheruser) => {
-          otheruser.classList.remove("darkgreycolor");
-          user.classList.add("darkgreycolor");
-        });
-      });
+      user.addEventListener("click", this.addColorClass);
     });
 
     this.input.addEventListener("keyup", this.addTodoOnEnter);
     this.$todoAddButton.addEventListener("click", this.handleAddTodo);
     this.$list.addEventListener("click", this.handleTodoClick);
-    //this.$user.addEventListener("click", this.addColorClass);
   }
+
+  addColorClass = (e) => {
+    this.$user.forEach((otheruser) => {
+      otheruser.classList.remove("darkgreycolor");
+      e.target.classList.add("darkgreycolor");
+    });
+  };
 
   addTodoOnEnter = (e) => {
     if (e.key === "Enter") {
