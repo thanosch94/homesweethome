@@ -1,5 +1,5 @@
 <html>
-<form action="search_results.php" method="post">
+<form action="metaforikes.php" method="post">
           <h1 class="fs-4 fw-bold no-padding-top">Εύρεση Μεταφορικής</h1>
           <div class="form-margins">
             <label for="taxidromikos"> ΤΚ</label>

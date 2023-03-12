@@ -1,6 +1,4 @@
-<?php
-include "connect.php"
-?>
+<?php include "connect.php"?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,20 +11,24 @@ include "connect.php"
   
   </head>
   <body>
-      <?php
-        include "header.php"; 
-      ?>
+      <?php include "header.php"?>
     <main>
       <aside>
-        <?php
-          include "search_form.php";
-        ?>
+        <?php include "search_form.php"?>
       </aside>
+      <section class="results">
+            <h1 class=" fs-4 fw-bold no-padding-top">Αποτελέσματα Αναζήτησης</h1>
+            <hr />
+        <?php 
+        // Load results
+        lista_metaf();
+        // No results
+        no_results();
 
+        ?>
+        </section>
     </main>
-      <?php
-        include "footer.php";
-      ?>
+      <?php include "footer.php"?>
     <script src="index.js"></script>
   </body>
 </html>
