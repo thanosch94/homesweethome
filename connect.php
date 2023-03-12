@@ -109,7 +109,7 @@ $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
         $users = $allusers->fetchAll(PDO::FETCH_ASSOC);
 
         foreach($users as $user){
-            echo '<h4 class="btn text-light w-100">'. $user['username'] .'</h4>';
+            echo '<h4 class="user btn text-light w-100">'. $user['username'] .'</h4>';
         }
 
     }
@@ -121,6 +121,5 @@ $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
 
 
     }
-    //test comment
 ?>
 
