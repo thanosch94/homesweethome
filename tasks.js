@@ -61,10 +61,18 @@ class TodoList {
   addEvents() {
     this.$todoEntry = document.querySelector(".todo-entry");
     this.$todoAddButton = document.querySelector(".todo-add-button");
+    this.input = document.querySelector("input");
 
+    this.input.addEventListener("keyup", this.addTodoOnEnter);
     this.$todoAddButton.addEventListener("click", this.handleAddTodo);
     this.$list.addEventListener("click", this.handleTodoClick);
   }
+
+  addTodoOnEnter = (e) => {
+    if (e.key === "Enter") {
+      this.handleAddTodo();
+    }
+  };
 
   handleAddTodo = (e) => {
     const title = this.$todoEntry.value;
