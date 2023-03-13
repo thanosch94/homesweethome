@@ -1,7 +1,7 @@
 class User {
-  constructor(name, id) {
+  constructor(name) {
     this.name = name;
-    this.id = id;
+    this.todos = JSON.parse(localStorage.getItem(`${this.name}-todos`));
   }
 }
 
@@ -24,8 +24,6 @@ class UserList {
   }
 }
 
-const test = new UserList(".newUserInput");
-
 class Todo {
   constructor(title) {
     this.title = title;
@@ -33,9 +31,10 @@ class Todo {
 }
 
 class TodoList {
-  constructor(listSelector) {
+  constructor(listSelector, user, name) {
     this.list = [];
     this.$list = document.querySelector(listSelector);
+    this.newUser = null;
     this.initialize();
     this.addEvents();
   }
@@ -52,9 +51,6 @@ class TodoList {
                     </div>`;
 
     this.$list.innerHTML = template;
-    if (JSON.parse(localStorage.getItem("todos")) !== null) {
-      this.list = JSON.parse(localStorage.getItem("todos"));
-    }
     this.renderItems();
   }
 
@@ -64,7 +60,7 @@ class TodoList {
     this.input = document.querySelector("input");
     this.$user = document.querySelectorAll(".user");
     this.$user.forEach((user) => {
-      user.addEventListener("click", this.addColorClass);
+      user.addEventListener("click", this.selectUser);
     });
 
     this.input.addEventListener("keyup", this.addTodoOnEnter);
@@ -72,11 +68,18 @@ class TodoList {
     this.$list.addEventListener("click", this.handleTodoClick);
   }
 
-  addColorClass = (e) => {
+  selectUser = (e) => {
     this.$user.forEach((otheruser) => {
       otheruser.classList.remove("darkgreycolor");
-      e.target.classList.add("darkgreycolor");
     });
+    e.target.classList.add("darkgreycolor");
+    this.newUser = new User(e.target.innerText);
+    if (this.newUser.todos) {
+      this.list = this.newUser.todos;
+    } else {
+      this.list = [];
+    }
+    this.renderItems();
   };
 
   addTodoOnEnter = (e) => {
@@ -89,7 +92,7 @@ class TodoList {
     const title = this.$todoEntry.value;
     if (title) {
       const newTodo = new Todo(title);
-      this.addTodo(newTodo);
+      this.addTodo(newTodo, this.newUser);
       this.$todoEntry.value = "";
     }
   };
@@ -97,25 +100,24 @@ class TodoList {
   handleTodoClick = (e) => {
     const className = e.target.className;
     if (className.includes("btn-delete")) {
-      this.deleteTodo(e);
+      this.deleteTodo(e, this.newUser);
     }
   };
-  addTodo(todo) {
+  addTodo(todo, newUser) {
     this.list.push(todo);
+    localStorage.setItem(`${newUser.name}-todos`, JSON.stringify(this.list));
     this.renderItems();
-    localStorage.setItem("todos", JSON.stringify(this.list));
   }
 
-  deleteTodo(e) {
+  deleteTodo(e, newUser) {
     const $todo = e.target.closest(".noteId");
     const idParts = $todo.id.split("-");
     const index = parseInt(idParts[1]);
 
     this.list.splice(index, 1);
 
+    localStorage.setItem(`${newUser.name}-todos`, JSON.stringify(this.list));
     this.renderItems();
-    const storage = localStorage.setItem("todos", JSON.stringify(this.list));
-    console.log(storage);
   }
   renderItems() {
     this.$listItems = this.$list.querySelector(".items");
@@ -135,5 +137,4 @@ class TodoList {
     this.$listItems.innerHTML = todoTemplate.join("");
   }
 }
-
 const list = new TodoList(".todo-list");
