@@ -24,6 +24,8 @@ class UserList {
   }
 }
 
+const $userlist = new UserList(".newUserInput");
+
 class Todo {
   constructor(title) {
     this.title = title;
