@@ -249,9 +249,12 @@ input::-webkit-inner-spin-button {
   background-color: darkslategray !important;
 }
 
-.btn {
+.darkgrey {
   background-color: darkslategray !important;
 }
+/*btn {
+ background-color: darkslategray !important;
+}*/
 
 .new_form input {
   height: 35px;
