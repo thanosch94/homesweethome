@@ -26,7 +26,7 @@ if (isset($_POST['newUser'])) {
         <h2>Χρήστες</h2>
         <?php users(); ?>
         <div class = "newUserInput row"></div>
-        <h4 class="btn text-light center addUserBtn">+</h4>
+        <h4 class="btn darkgrey text-light center addUserBtn">+</h4>
     </aside>
     <section class="results col-lg-8 col-sm-12 todo-list">
     </section>

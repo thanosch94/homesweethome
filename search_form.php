@@ -30,7 +30,7 @@
             <label for="antikatavoli">Παίρνει αντικαταβολή</label>
             <input type="checkbox" />
           </div>
-            <button class="btn w-100 text-light" type="submit" value="Αναζήτηση" >Αναζήτηση</button>
+            <button class="btn darkgrey w-100 text-light" type="submit" value="Αναζήτηση" >Αναζήτηση</button>
 
         </form>
 </html>

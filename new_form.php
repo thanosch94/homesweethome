@@ -93,6 +93,6 @@
         type="text">
 </textarea>
     </div>    
-    <button class="btn w-100 text-light" type="submit" value="Προσθήκη" >Προσθήκη</button>
+    <button class="btn darkgrey w-100 text-light" type="submit" value="Προσθήκη" >Προσθήκη</button>
 
 </form>

@@ -46,7 +46,7 @@ class TodoList {
                         <h2 class="col-12  center">Νεα εργασία</h2>
                         <div class="row justify-content-center justify-content-sm-center justify-content-md-center">
                             <input class=" col-8 col-sm-7 col-md-8 col-lg-10 todo-entry" style="height:50px"/>
-                            <p class="col-3 col-sm-3 col-md-2 col-lg-2 text-light pt-3 pb-3 text-center center btn btn-submit todo-add-button" style="height:50px">Προσθήκη</p>
+                            <p class="col-3 col-sm-3 col-md-2 col-lg-2 text-light pt-3 pb-3 text-center center btn darkgrey btn-submit todo-add-button" style="height:50px">Προσθήκη</p>
                         </div>
                     </div>
                     <div class="items mt-5 row justify-content-sm-center justify-content-md-center justify-content-lg-start">
@@ -131,7 +131,7 @@ class TodoList {
                       <h4 class="col-10 col-lg-10 col-sm-10 text-center ">Εργασία ${
                         i + 1
                       }</h4>
-                      <span class="col-2 col-lg-2 col-sm-2 btn btn-danger btn-delete center">x</span>
+                      <span class="col-2 col-lg-2 col-sm-2 btn darkgrey text-light btn-delete center">x</span>
                   </div>
                   <p class="mt-4">${title} </p>
               </div>      `;
