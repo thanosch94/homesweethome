@@ -121,5 +121,23 @@ $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
 
 
     }
+
+    function new_refund(){
+        global $pdo; 
+        $new_refund = $pdo->prepare('INSERT INTO refunds(customerid, orderid, refund, descr) VALUES (:customerid, :orderid, :refund, :descr)');
+        $new_refund ->bindParam(':customerid', $_REQUEST['customerid'], PDO::PARAM_STR);
+        $new_refund ->bindParam(':orderid', $_REQUEST['orderid'], PDO::PARAM_STR);
+        $new_refund ->bindParam(':refund', $_REQUEST['refund'], PDO::PARAM_STR);
+        $new_refund ->bindParam(':descr', $_REQUEST['descr'], PDO::PARAM_STR);
+        $new_refund ->execute();
+    }
+
+    function refund(){
+        global $pdo; 
+        $refund = $pdo->prepare('SELECT * FROM refunds');
+        $refund -> execute();
+        $refunds= $refund->fetchAll(PDO::FETCH_ASSOC);
+        return $refunds;
+    }
 ?>
 
