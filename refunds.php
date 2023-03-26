@@ -1,3 +1,10 @@
+<?php  
+include "connect.php";
+if (isset($_POST['customerid'])) {
+  new_refund();
+} 
+  
+ ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,27 +22,45 @@
       ?>
     <main>
     <aside class="col-lg-3 col-sm-10 p-5">
-        <form class="justify-content-center">
+        <form class="justify-content-center" action="refunds.php" method="post">
             <div class="row">
                 <div class="col-6">
-                    <label class="col-11 mb-4"for="customNumber">Αριθμός Πελάτη</label>
-                    <input class=" text-center p-3 mb-3" type="text">
+                    <label class="col-11 mb-4"for="customerid">Αριθμός Πελάτη</label>
+                    <input name="customerid" class=" text-center p-3 mb-3" type="text">
                 </div>
                 <div class="col-6">
-                    <label class="mb-4" for="orderNumber">Αριθμός Παραγγελίας</label>
-                    <input class="text-center p-3 mb-3" type="text">
+                    <label class="mb-4" for="orderid">Αριθμός Παραγγελίας</label>
+                    <input name="orderid" class="text-center p-3 mb-3" type="text">
                 </div>
             </div>
             <label for="refundAmount">Ποσό επιστροφής</label>
-            <input class="text-center p-3 mb-3" type="text">
+            <input name="refund" class="text-center p-3 mb-3" type="text">
             <label for="reason">Αιτία επιστροφής</label>
-            <input class="text-center p-3 mb-5" type="text">
-            <button class="col-12 text-light btn btn success"> Καταχώρηση </button>
+            <input name="descr" class="text-center p-3 mb-5" type="text">
+            <button class="col-12 text-light darkgrey btn btn success"> Καταχώρηση </button>
  
         </form>
     </aside>
-    <section class="results col-lg-8 col-sm-12">
+    <section class="results col-lg-7 col-sm-12">
       <h2>Επιστροφές χρημάτων</h2>
+      <div>
+        <?php 
+         $refunds = refund();
+        
+        foreach($refunds as $refund){?>
+        <div class="row mt-4">
+          <form>
+          <p class="col-6 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: <?php echo $refund['customerid'];?> | Αριθμός παραγγελίας: <?php echo $refund['orderid'];?> </p> 
+          <p class="col-2 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"><?php echo $refund['refund'];?>€</p>
+          <p class="col-1 btn btn-success pt-4 pb-4 me-3 text-light">√</p>
+          <p class="col-1 btn btn-danger pt-4 pb-4 text-light">x</p>
+        </form>
+        </div>
+        <p class="col-9 mb-3"> Ημερομηνία καταχώρησης: <?php echo $refund['date'];?></p>
+        <p class="col-9 mb-5"> Αιτία: <?php echo $refund['descr'];?></p>
+        <hr class="shadow col-11">
+        <?php }?>
+      </div>
     </section>
 
     </main>
