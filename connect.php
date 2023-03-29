@@ -130,6 +130,8 @@ $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
         $new_refund ->bindParam(':refund', $_REQUEST['refund'], PDO::PARAM_STR);
         $new_refund ->bindParam(':descr', $_REQUEST['descr'], PDO::PARAM_STR);
         $new_refund ->execute();
+        unset($_POST['customerid']);
+        
     }
 
     function refund(){
@@ -138,6 +140,14 @@ $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
         $refund -> execute();
         $refunds= $refund->fetchAll(PDO::FETCH_ASSOC);
         return $refunds;
+    }
+    function deleteRefund(){
+        $refid = $_POST['refid'];
+        print_r($refid);
+        global $pdo; 
+        $deleteRef = $pdo->prepare('DELETE FROM refunds WHERE refund_id=?');
+        $deleteRef -> execute([$refid]);
+        $_POST['refid']=NULL;
     }
 ?>
 
