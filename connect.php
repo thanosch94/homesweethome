@@ -149,5 +149,36 @@ $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
         $deleteRef -> execute([$refid]);
         $_POST['refid']=NULL;
     }
-?>
+
+    function searchRefund(){
+        global $pdo; 
+        $input = $_POST['inputs'];
+        $searchRefund = $pdo->prepare('SELECT * FROM refunds WHERE orderid LIKE ?');
+        $searchRefund -> execute(['%'. $input.'%']);
+        $search_refund = $searchRefund->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($search_refund as $refund){
+            echo'   <script>
+                        refundId ='.$refund['refund_id'].'
+                    </script>
+                    <div>
+                        <div class="refunds refund-'.$refund['refund_id'].'">
+                            <div class="row mt-4">
+                                <form>
+                                    <p class="col-6 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: '. $refund['customerid'] .' | Αριθμός παραγγελίας: ' . $refund['orderid'] .' </p> 
+                                    <p class="col-2 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded">'. $refund['refund'].'€</p>
+                                    <p class="col-1 btn btn-success pt-4 pb-4 me-3 text-light">√</p>
+                                    <p class="col-1 btn btn-danger pt-4 pb-4 text-light delete">x</p>
+                                </form>
+                            </div>
+                            <p class="col-9 mb-3"> Ημερομηνία καταχώρησης:' .$refund['date'].'</p>
+                            <p class="col-9 mb-5"> Αιτιολογία: ' . $refund['descr'].'</p>
+                            <hr class="shadow col-11">
+                        </div>    
+                    </div>';
+        }
+    
+        unset($_POST['inputs']);
+
+    }
 

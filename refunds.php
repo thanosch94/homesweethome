@@ -1,8 +1,7 @@
 <?php  
 include "connect.php";
-if (isset($_POST['customerid'])) {
-  new_refund();
-} 
+
+
  ?>
 <html lang="en">
   <head>
@@ -13,12 +12,7 @@ if (isset($_POST['customerid'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   
   </head>
   <body>
@@ -53,20 +47,25 @@ if (isset($_POST['customerid'])) {
     <section  class="results col-lg-7 col-sm-12">
       <section>
         <form class="row">
-          <input name="order_customer_id" class="col-8 p-3 mb-3" type="text" placeholder="Αναζήτηση με αριθμό παραγγελίας ή αριθμό πελάτη">
+          <input name="order_customer_id" class="ord_cust_id col-8 p-3 mb-3" type="text" placeholder="Αναζήτηση με αριθμό παραγγελίας ή αριθμό πελάτη">
           <button class="col-3  ms-3 h-100 text-light darkgrey btn"> Αναζήτηση </button>
         </form>
       </section>
-      <section>
 
+      <section class="refund">
+
+      
         <?php 
+if (isset($_POST['customerid'])) {
+  new_refund();
+} 
           $refunds = refund();      
           foreach($refunds as $refund){?>
           <script>
               refundId = <?php echo $refund['refund_id'];?>;
             </script>
             <div>
-              <div class=" refund refund-<?php echo $refund['refund_id'];?>">
+              <div class="refunds refund-<?php echo $refund['refund_id'];?>">
                 <div class="row mt-4">
                   <form>
                   <p class="col-6 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: <?php echo $refund['customerid'];?> | Αριθμός παραγγελίας: <?php echo $refund['orderid'];?> </p> 
@@ -90,4 +89,6 @@ if (isset($_POST['customerid'])) {
       ?>
   </body>
   <script src="refunds.js"></script>
+      <script src="search_refund.js"></script>
+  
 </html>
