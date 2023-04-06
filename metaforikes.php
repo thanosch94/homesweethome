@@ -20,11 +20,12 @@
             <h1 class=" fs-4 fw-bold no-padding-top">Αποτελέσματα Αναζήτησης</h1>
             <hr />
         <?php 
+        if (isset($_REQUEST['tax'])){
         // Load results
         lista_metaf();
         // No results
         no_results();
-
+        };
         ?>
         </section>
     </main>
