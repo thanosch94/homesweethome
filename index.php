@@ -53,7 +53,7 @@
               <li>Αποστολές με όχημα του καταστήματος</li>
             </ul>
             <div class="center">
-              <button class="btn btn-success mt-3 mb-3">Περισσότερα</button>
+              <button class="btn text-light darkgrey mt-3 mb-3">Περισσότερα</button>
             </div>
 
           </div>
@@ -70,7 +70,7 @@
               <li>Επιστροφές από Skroutz</li>
             </ul>
             <div class="center">
-              <button class="btn btn-success mt-3 mb-3">Περισσότερα</button>
+              <button class="btn text-light darkgrey mt-3 mb-3">Περισσότερα</button>
             </div>
 
           </div>
@@ -88,7 +88,7 @@
             </ul>
 
             <div class="center ">
-              <button class="btn btn-success mt-3 mb-3">Περισσότερα</button>
+              <button class="btn text-light darkgrey mt-3 mb-3">Περισσότερα</button>
             </div>
 
           </div>
@@ -118,7 +118,7 @@
                 </ul>
             </ul>
             <div class="center ">
-              <button class="btn btn-success mt-3 mb-3">Περισσότερα</button>
+              <button class="btn text-light darkgrey mt-3 mb-3">Περισσότερα</button>
             </div>
 
           </div>

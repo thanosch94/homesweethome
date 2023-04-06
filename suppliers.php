@@ -83,7 +83,7 @@
           </div>
         </div>
         <hr class="center">
-        <a href="#suppliers" class="btn btn-success moresuppliers" data-toggle="collapse">Περισσότερα</a>
+        <a href="#suppliers" class="btn text-light darkgrey moresuppliers" data-toggle="collapse">Περισσότερα</a>
         <div id="suppliers" class="collapse">
         <div class="row mt-3">
           <div class="col-2 opacity-75">
