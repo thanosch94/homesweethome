@@ -29,24 +29,24 @@ include "connect.php";
           <div class="row">
             <div class="col-6">
               <label class="col-10 mb-4"for="customerid">Αριθμός Πελάτη</label>
-              <input name="customerid" class=" text-center p-3 mb-3" type="text">
+              <input name="customerid" class=" text-center p-3 mb-3" type="text" placeholder="πχ 064582">
             </div>
             <div class="col-6">
               <label class="mb-4" for="orderid">Αριθμός Παραγγελίας</label>
-              <input name="orderid" class="text-center p-3 mb-3" type="text">
+              <input name="orderid" class="text-center p-3 mb-3" type="text"  placeholder="πχ 000114023">
             </div>
             </div>
             <label for="refundAmount">Ποσό επιστροφής</label>
-            <input name="refund" class="text-center p-3 mb-3" type="text">
+            <input name="refund" class="text-center p-3 mb-3" type="text" placeholder="πχ 252.73">
             <label for="reason">Αιτιολογία επιστροφής</label>
-            <input name="descr" class="text-center p-3 mb-5" type="text">
+            <input name="descr" class="text-center p-3 mb-5" type="text" placeholder="πχ Υπαναχώρηση">
             <button class="col-12 text-light darkgrey btn btn success"> Καταχώρηση </button>
  
         </form>
     </aside>
     <section  class="results col-lg-7 col-sm-12">
       <section>
-        <form class="row">
+        <form class="col-12 row">
           <input name="order_customer_id" class="ord_cust_id col-8 p-3 mb-3" type="text" placeholder="Αναζήτηση με αριθμό παραγγελίας ή αριθμό πελάτη">
           <button class="col-3  ms-3 h-100 text-light darkgrey btn"> Αναζήτηση </button>
         </form>
@@ -66,12 +66,12 @@ if (isset($_POST['customerid'])) {
             </script>
             <div>
               <div class="refunds refund-<?php echo $refund['refund_id'];?>">
-                <div class="row mt-4">
-                  <form>
-                  <p class="col-6 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: <?php echo $refund['customerid'];?> | Αριθμός παραγγελίας: <?php echo $refund['orderid'];?> </p> 
-                  <p class="col-2 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"><?php echo $refund['refund'];?>€</p>
-                  <p class="col-1 btn btn-success pt-4 pb-4 me-3 text-light">√</p>
-                  <p class="col-1 btn btn-danger pt-4 pb-4 text-light delete">x</p>
+                <div class=" mt-4">
+                  <form class="container row">
+                    <p class="col-6 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: <?php echo $refund['customerid'];?> | Αριθμός παραγγελίας: <?php echo $refund['orderid'];?> </p> 
+                    <p class="col-2 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"><?php echo $refund['refund'];?>€</p>
+                    <button class="col-1 btn btn-success p-4 me-3 h-100 text-light">√</button>
+                    <button class="col-1 btn btn-danger p-4 h-100 text-light delete">x</button>
                   </form>
                 </div>
                 <p class="col-9 mb-3"> Ημερομηνία καταχώρησης: <?php echo $refund['date'];?></p>
@@ -81,7 +81,7 @@ if (isset($_POST['customerid'])) {
           
               <?php }?>
             </div>
-      </section>
+          </section>
     </section>
     </main>
       <?php
