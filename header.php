@@ -4,7 +4,7 @@
         </section>
         <div class="clear"></div>
         <nav>
-        <div class=" bg-gradient ">
+        <div class="container-fluid bg-gradient ">
           <div class="navbar row text-center text-light fw-normal">
               <a class=" nav-link col-2 shadow p-3 mb-5 bg-gradient" href="index.php">Αρχική</a>
           
@@ -14,7 +14,7 @@
                   <li><a class=" nav-link shadow bg-gradient p-3" href="nea_metaforiki.php">Προσθήκη Μεταφορικής</a></li>
                 </ul>  
               <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient">Soft1</a>
-              <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient">Κατάστημα</a>
+              <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient" href="refunds.php">Επιστροφές</a>
               <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient" href="suppliers_page.php">Προμηθευτές</a>
               <a class="nav-link col-2 shadow p-3 mb-5 bg-gradient" href="daily_tasks.php">Εργασίες</a>
           </div>
