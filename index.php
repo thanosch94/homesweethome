@@ -42,7 +42,7 @@
         <div class="row">
           <div class="col-lg-4 col-sm-12 border me-0">
             <div class="center">
-              <img src="images/receivals.jpg" width="300px">
+              <img src="images/receivals.jpg" width="100%">
               <br>
               <h3 class="fw-bold">Παραλαβές</h3>
             </div>
@@ -59,7 +59,7 @@
           </div>
           <div class="col-lg-4 col-sm-12 border me-0">
             <div class="center">
-              <img src="images/returns.jpg" width="300px">
+              <img src="images/returns.jpg" width="100%">
               <br>
               <h3 class="fw-bold">Επιστροφές</h3>
             </div>
@@ -76,7 +76,7 @@
           </div>
           <div class="col-lg-4 col-sm-12 border">
             <div class="center">
-              <img src="images/compensations.jpg" width="300px">
+              <img src="images/compensations.jpg" width="100%">
               <br>
               <h3 class="fw-bold">Αποζημιώσεις</h3>
             </div>
@@ -99,7 +99,7 @@
       <div class="pt-4 pb-4 text-light shadow p-3 mb-5 bg-secondary bg-gradient">
         <div class="container mt-3 mb-3" >
           <div class="row" data-mdb-animation-on-scroll="repeat">
-            <img class="col-lg-6 col-sm-12" src="images/leitourgies.jpg">
+            <img class="col-lg-6 col-sm-12" src="images/leitourgies.jpg" width="100%">
 
           <div class="col-lg-6 col-sm-12">
             <h4 class="fw-bold  mt-sm-4 text-xs-center text-sm-center text-xl-start ">Λειτουργίες του καταστήματος</h4>
