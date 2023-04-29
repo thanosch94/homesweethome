@@ -1,6 +1,8 @@
 <?php  
-include "connect.php";
+require_once __DIR__.'/boot/boot.php';
 
+$refunds = new Refunds;
+$results = $refunds ->get_refunds();
 
  ?>
 <html lang="en">
@@ -25,7 +27,7 @@ include "connect.php";
       <div class="mb-4 font-weight-bold">
         <h4>Καταχώρηση νέας επιστροφής</h4>
       </div>
-        <form class="justify-content-center" action="refunds.php" method="post">
+        <form class="justify-content-center" action="actions/new_refund.php" method="post">
           <div class="row">
             <div class="col-6">
               <label class="col-10 mb-4"for="customerid">Αριθμός Πελάτη</label>
@@ -56,19 +58,15 @@ include "connect.php";
 
       
         <?php 
-if (isset($_POST['customerid'])) {
-  new_refund();
-} 
-          $refunds = refund();      
-          foreach($refunds as $refund){?>
+          foreach($results as $refund){?>
           <script>
               refundId = <?php echo $refund['refund_id'];?>;
             </script>
             <div>
               <div class="refunds refund-<?php echo $refund['refund_id'];?>">
                 <div class=" mt-4">
-                  <form class="container row">
-                    <p class="col-6 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: <?php echo $refund['customerid'];?> | Αριθμός παραγγελίας: <?php echo $refund['orderid'];?> </p> 
+                  <form class="w-100 row">
+                    <p class="col-7 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"> Κωδικός Πελάτη: <?php echo $refund['customerid'];?> | Αριθμός παραγγελίας: <?php echo $refund['orderid'];?> </p> 
                     <p class="col-2 btn pt-4 pb-4 me-3 shadow darkgrey text-light rounded"><?php echo $refund['refund'];?>€</p>
                     <button class="col-1 btn btn-success p-4 me-3 h-100 text-light">√</button>
                     <button class="col-1 btn btn-danger p-4 h-100 text-light delete">x</button>
