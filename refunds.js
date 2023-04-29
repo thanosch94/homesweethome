@@ -6,7 +6,7 @@
     refNum = $id.slice(7);
     const element = document.querySelector(`.${$id}`);
 
-    $.ajax("delete_refund.php", {
+    $.ajax("actions/Refunds/delete_refund.php", {
       type: "POST",
       dataType: "html",
       data: { refid: refNum },

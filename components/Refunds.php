@@ -28,7 +28,7 @@ class Refunds{
         unset($_POST['customerid']);
         
     }
-    public function deleteRefund(){
+    public function delete_refund(){
         $refid = $_POST['refid'];
         $statement = $this->getPdo()->prepare('DELETE FROM refunds WHERE refund_id=?');
         $statement -> execute([$refid]);

@@ -27,7 +27,7 @@ $results = $refunds ->get_refunds();
       <div class="mb-4 font-weight-bold">
         <h4>Καταχώρηση νέας επιστροφής</h4>
       </div>
-        <form class="justify-content-center" action="actions/new_refund.php" method="post">
+        <form class="justify-content-center" action="actions/Refunds/new_refund.php" method="post">
           <div class="row">
             <div class="col-6">
               <label class="col-10 mb-4"for="customerid">Αριθμός Πελάτη</label>
